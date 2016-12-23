@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaceLogger.Web", "PaceLogger.Web\PaceLogger.Web.csproj", "{B5904545-B8C9-491B-A80E-48D99ADE0D74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaceLogger.Core", "PaceLogger.Core\PaceLogger.Core.csproj", "{7434D620-1219-4614-ADA0-80A743F19AD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaceLogger.Model", "PaceLogger.Model\PaceLogger.Model.csproj", "{3339F06F-F954-41B3-ABAF-076265170F16}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5904545-B8C9-491B-A80E-48D99ADE0D74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5904545-B8C9-491B-A80E-48D99ADE0D74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5904545-B8C9-491B-A80E-48D99ADE0D74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5904545-B8C9-491B-A80E-48D99ADE0D74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7434D620-1219-4614-ADA0-80A743F19AD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7434D620-1219-4614-ADA0-80A743F19AD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7434D620-1219-4614-ADA0-80A743F19AD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7434D620-1219-4614-ADA0-80A743F19AD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3339F06F-F954-41B3-ABAF-076265170F16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3339F06F-F954-41B3-ABAF-076265170F16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3339F06F-F954-41B3-ABAF-076265170F16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3339F06F-F954-41B3-ABAF-076265170F16}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,35 +1,43 @@
-﻿var Laps = React.createClass({
+﻿class Laps extends React.Component {
 
-    getInitialState: function () {
-        return { data: [] };
-    },
+    constructor() {
+        super();
+        this.state = { data: [] };
+    }
 
-    componentWillMount: function () {        
+    componentWillMount() {
         var self = this;
         $.getJSON(this.props.rest, function (data) {
             self.setState({ data: data });
-        });        
-    },
+        });
+    }
 
-    render: function () {
-        console.log(this.state.data);
-        var rows = this.state.data.map(function (lap, index) {
-            var d = new Date(parseInt(lap.StartTime.substr(6)));
-            lap.StartTime = d.toLocaleDateString() + ' ' + d.toLocaleTimeString();
+    render() {
+        const rows = this.state.data.map((lap, index) => {
             return (
-                <tr key={index}>
-                    <td>{lap.StartTime}</td>
-                    <td>{lap.DistanceMeters}</td>
-                    <td>{lap.MaximumSpeed}</td>
-                    <td>{lap.Calories}</td>
-                    <td>{lap.AverageHeartRate}</td>
-                    <td>{lap.MaximumHeartRate}</td>
-                </tr>     
+                <tr key={index }>
+                    <td><ValueFormatter type="datetime">{lap.StartTime}</ValueFormatter></td>
+                    <td><ValueFormatter type="float">{lap.DistanceMeters}</ValueFormatter></td>
+                    <td><ValueFormatter type="float">{lap.MaximumSpeed}</ValueFormatter></td>
+                    <td><ValueFormatter type="float">{lap.Calories}</ValueFormatter></td>
+                    <td><ValueFormatter type="float">{lap.AverageHeartRate}</ValueFormatter></td>
+                    <td><ValueFormatter type="float">{lap.MaximumHeartRate}</ValueFormatter></td>
+                </tr>
             );
         });
 
         return (
-            <table className="table"><tbody>{rows}</tbody></table>
+            <table className="table">
+                <thead>
+                    <th>Start-Zeit</th>
+                    <th>Distanz in m</th>
+                    <th>Maximale Geschwindigkeit</th>
+                    <th>verbraucte Kalorien</th>
+                    <th>Puls (Durchschnitt)</th>
+                    <th>Puls (Maximum)</th>
+                </thead>
+                <tbody>{rows}</tbody>
+            </table>
         );
     }
-});
+}

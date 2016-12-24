@@ -9,7 +9,13 @@ namespace PaceLogger.Core.Serialization {
     public class TcxSerializer {
         public static Model.Activity Deserialize(string pathTcxFile) {
             var data = loadTcx(pathTcxFile);
-            return PaceLogger.Core.Converter.Tcx.Acitivty(data.Activities.Activity[0]); // TODO: z.Zt. Annahme das das TCX immer nur eine Activity hat, was aber laut XSD nicht stimmt           
+            var activity = PaceLogger.Core.Converter.Tcx.Acitivty(data.Activities.Activity[0]); // TODO: z.Zt. Annahme das das TCX immer nur eine Activity hat, was aber laut XSD nicht stimmt           
+
+            activity.Time = Calculation.Activity.CalculateTotalTime(activity.Laps);
+            activity.DistanceMeters = Calculation.Activity.CalculateTotalDistance(activity.Laps);
+            activity.StartTime = activity.Laps.First().StartTime;
+
+            return activity;
         }
 
         private static TrainingCenterDatabase_t loadTcx(string pathTcxFile) {

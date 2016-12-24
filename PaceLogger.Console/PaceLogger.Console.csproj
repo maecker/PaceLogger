@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7434D620-1219-4614-ADA0-80A743F19AD1}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{308F3490-01CB-4AA1-A837-60C98487AABA}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PaceLogger.Core</RootNamespace>
-    <AssemblyName>PaceLogger.Core</AssemblyName>
+    <RootNamespace>PaceLogger.Console</RootNamespace>
+    <AssemblyName>PaceLogger.Console</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -49,25 +52,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Calculation\Activity.cs" />
-    <Compile Include="Converter\Tcx.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\Activity.cs" />
-    <Compile Include="Repository\DatabaseContext.cs" />
-    <Compile Include="Repository\Laps.cs" />
-    <Compile Include="Serialization\Tcx.cs" />
-    <Compile Include="Serialization\TcxSerializer.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\PaceLogger.Model\PaceLogger.Model.csproj">
-      <Project>{3339f06f-f954-41b3-abaf-076265170f16}</Project>
-      <Name>PaceLogger.Model</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PaceLogger.Core\PaceLogger.Core.csproj">
+      <Project>{7434d620-1219-4614-ada0-80a743f19ad1}</Project>
+      <Name>PaceLogger.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PaceLogger.Model\PaceLogger.Model.csproj">
+      <Project>{3339f06f-f954-41b3-abaf-076265170f16}</Project>
+      <Name>PaceLogger.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

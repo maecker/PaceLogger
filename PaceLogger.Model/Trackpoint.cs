@@ -12,5 +12,7 @@ namespace PaceLogger.Model
         public byte? Heartrate { get; set; }
         public double? Latitude { get; set; }
         public double? Longitude { get; set; }
+        public int LapId { get; set; }
+        public int TrackpointId { get; set; }
     }
 }

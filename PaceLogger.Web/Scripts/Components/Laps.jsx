@@ -7,7 +7,7 @@
 
     componentWillMount() {
         var self = this;
-        $.getJSON(this.props.rest, function (data) {
+        $.getJSON('/api/laps/' + window['activityId'] , function (data) {
             self.setState({ data: data });
         });
     }
@@ -28,13 +28,15 @@
 
         return (
             <table className="table">
-                <thead>
-                    <th>Start-Zeit</th>
-                    <th>Distanz in m</th>
-                    <th>Maximale Geschwindigkeit</th>
-                    <th>verbraucte Kalorien</th>
-                    <th>Puls (Durchschnitt)</th>
-                    <th>Puls (Maximum)</th>
+                <thead>                
+                    <tr>
+                        <th>Start-Zeit</th>
+                        <th>Distanz in m</th>
+                        <th>Maximale Geschwindigkeit</th>
+                        <th>verbraucte Kalorien</th>
+                        <th>Puls (Durchschnitt)</th>
+                        <th>Puls (Maximum)</th>
+                    </tr>
                 </thead>
                 <tbody>{rows}</tbody>
             </table>

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaceLogger.Core", "PaceLogg
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaceLogger.Model", "PaceLogger.Model\PaceLogger.Model.csproj", "{3339F06F-F954-41B3-ABAF-076265170F16}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaceLogger.Console", "PaceLogger.Console\PaceLogger.Console.csproj", "{308F3490-01CB-4AA1-A837-60C98487AABA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{3339F06F-F954-41B3-ABAF-076265170F16}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3339F06F-F954-41B3-ABAF-076265170F16}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3339F06F-F954-41B3-ABAF-076265170F16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{308F3490-01CB-4AA1-A837-60C98487AABA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{308F3490-01CB-4AA1-A837-60C98487AABA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{308F3490-01CB-4AA1-A837-60C98487AABA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{308F3490-01CB-4AA1-A837-60C98487AABA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

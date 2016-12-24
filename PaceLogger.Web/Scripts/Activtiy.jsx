@@ -1,3 +1,3 @@
 ﻿ReactDOM.render(
-    <Laps rest="/activity/laps" />, document.getElementById('content')
+    <Laps />, document.getElementById('content')
 );

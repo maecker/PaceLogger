@@ -13,5 +13,7 @@ namespace PaceLogger.Model
         public byte? AverageHeartRate { get; set; }
         public byte? MaximumHeartRate { get; set; }
         public Trackpoint[] Track { get; set; }
+        public int ActivityId { get; set; }
+        public int LapId { get; set; }
     }
 }

@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 namespace PaceLogger.Model
 {
     public class Activity
-    {  
+    {        
+        public int ActivityId { get; set; }
+        public int UserId { get; set; }        
         public DateTime StartTime { get; set; }
         public TimeSpan Time { get; set; }
         public double DistanceMeters { get; set; }
-        public Lap[] Laps { get; set; }
+        public virtual Lap[] Laps { get; set; }
     }
 }

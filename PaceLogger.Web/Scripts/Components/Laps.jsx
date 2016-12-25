@@ -6,8 +6,8 @@
     }
 
     componentWillMount() {
-        var self = this;
-        $.getJSON('/api/laps/' + window['activityId'] , function (data) {
+        var self = this;        
+        $.getJSON('/api/activity/' + window['activityId'] + '/laps', function (data) {
             self.setState({ data: data });
         });
     }

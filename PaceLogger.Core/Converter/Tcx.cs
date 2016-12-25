@@ -43,7 +43,7 @@ namespace PaceLogger.Core.Converter {
                 DistanceMeters = t.DistanceMetersSpecified ? t.DistanceMeters : default(double?),
                 Heartrate = t.HeartRateBpm?.Value,
                 Latitude = t.Position?.LatitudeDegrees,
-                Longitude = t.Position?.LatitudeDegrees,
+                Longitude = t.Position?.LongitudeDegrees,
                 Time = t.Time
             };
         }

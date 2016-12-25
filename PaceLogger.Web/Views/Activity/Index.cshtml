@@ -13,10 +13,12 @@
 </head>
 <body>
     <div id="content"></div>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react-dom.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <div id="map"></div>
+    <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react-dom.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyAnAGmgfWSOk8mbtJhYbNSr52x-eN8-Y5M"></script>
 
     <script>
         window['activityId'] = '@ViewBag.ActivityId';
@@ -24,7 +26,8 @@
 
     <script src="@Url.Content("~/Scripts/Components/ValueFormatter.jsx")"></script>
     <script src="@Url.Content("~/Scripts/Components/Laps.jsx")"></script>
-    <script src="@Url.Content("~/Scripts/Activtiy.jsx")"></script>
+    <script src="@Url.Content("~/Scripts/Components/Map.jsx")"></script>
+    <script src="@Url.Content("~/Scripts/Activtiy.jsx")"></script>    
 </body>
 </html>
 

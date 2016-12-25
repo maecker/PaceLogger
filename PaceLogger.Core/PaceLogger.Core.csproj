@@ -56,6 +56,7 @@
     <Compile Include="Repository\Activity.cs" />
     <Compile Include="Repository\DatabaseContext.cs" />
     <Compile Include="Repository\Laps.cs" />
+    <Compile Include="Repository\Trackpoints.cs" />
     <Compile Include="Serialization\Tcx.cs" />
     <Compile Include="Serialization\TcxSerializer.cs" />
   </ItemGroup>

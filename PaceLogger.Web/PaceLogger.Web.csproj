@@ -178,6 +178,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\Activtiy.jsx" />
     <Content Include="Scripts\Components\Laps.jsx" />
+    <Content Include="Scripts\Components\Map.jsx" />
     <Content Include="Scripts\Components\ValueFormatter.jsx" />
     <Content Include="Web.config" />
   </ItemGroup>

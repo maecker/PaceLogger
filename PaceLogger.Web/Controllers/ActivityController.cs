@@ -10,8 +10,11 @@ namespace PaceLogger.Web.Controllers {
         [Route("activity/{id}")]
         public ActionResult Index(string id) {
             ViewBag.ActivityId = id;
+            ViewBag.GoogleMapsKey = System.IO.File.ReadAllText(@"D:\Visual Studio 2015\GoogleMapsKey.txt");
             return View();
         }
+
+        
 
         [Route("api/activity/{activityId}/laps")]
         [OutputCache(Location = OutputCacheLocation.None)]

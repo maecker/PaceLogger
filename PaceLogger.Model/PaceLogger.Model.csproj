@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activity.cs" />
+    <Compile Include="ChartDataItem.cs" />
+    <Compile Include="GeoLocation.cs" />
     <Compile Include="Lap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Trackpoint.cs" />

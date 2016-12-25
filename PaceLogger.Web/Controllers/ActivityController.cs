@@ -8,35 +8,10 @@ namespace PaceLogger.Web.Controllers {
     public class ActivityController : Controller {
 
         [Route("activity/{id}")]
-        public ActionResult Index(string id) {
+        public ActionResult Index(int id) {
             ViewBag.ActivityId = id;
             ViewBag.GoogleMapsKey = System.IO.File.ReadAllText(@"D:\Visual Studio 2015\GoogleMapsKey.txt");
             return View();
-        }
-
-        
-
-        [Route("api/activity/{activityId}/laps")]
-        [OutputCache(Location = OutputCacheLocation.None)]
-        public ActionResult Laps(int activityId) {
-            var laps = Core.Repository.Laps.GetByActivityId(activityId);
-            return Json(laps, JsonRequestBehavior.AllowGet);
-        }         
-
-        [Route("api/activity/{activityId}/map")]
-        [OutputCache(Location = OutputCacheLocation.None)]
-        public ActionResult Map(int activityId) {
-
-            var trackpoints = Core.Repository.Trackpoints.GetByActivityId(activityId);
-
-            var result = new List<dynamic>();
-
-            for (var i = 0; i < trackpoints.Length; i += 2) {
-                var tp = trackpoints[i];
-                result.Add(new { lat = tp.Latitude, lng = tp.Longitude });
-            }            
-
-            return Json(result, JsonRequestBehavior.AllowGet);
-        }
+        } 
     }
 }

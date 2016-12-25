@@ -50,7 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Calculation\Activity.cs" />
+    <Compile Include="Calculation\Trackpoints.cs" />
     <Compile Include="Converter\Tcx.cs" />
+    <Compile Include="Converter\Trackpoints.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\Activity.cs" />

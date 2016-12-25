@@ -12,8 +12,7 @@ namespace PaceLogger.Core.Repository {
             const string SQL = @"
                 SELECT * 
                 FROM dbo.Trackpoints 
-                WHERE LapId IN (SELECT LapId FROM Laps WHERE ActivityId = @p0) 
-                AND Latitude IS NOT NULL AND Longitude IS NOT NULL";
+                WHERE LapId IN (SELECT LapId FROM Laps WHERE ActivityId = @p0)";
 
             using (var db = new DatabaseContext()) {
                 var tp = db.Trackpoints.SqlQuery(SQL, activityID);

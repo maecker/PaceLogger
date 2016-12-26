@@ -11,12 +11,46 @@
 <body>
     <div id="content">
         <a href="/Activity/5">weiter</a>
+        <div style="width: 1000px; height: 400px;">
+            <canvas id="myChart"></canvas>
+        </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react-dom.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    
+    <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react-dom.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script>
+
+        $(function () {
+            $.get('api/activity/5/chart', convertData);
+        });
+
+        function convertData(response) {
+            var labels = [], data = [];
+
+            response.forEach(function (item) {
+                labels.push(item.ElapsedSeconds);
+                data.push(item.Speed);
+            });
+
+            drawChart(labels, data);
+        }
+
+        function drawChart(labels, data) {
+            var ctx = document.getElementById("myChart");
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: data,
+                    }]
+                }
+            });
+        }
+    </script>    
 </body>
 </html>

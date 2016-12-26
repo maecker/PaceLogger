@@ -13,8 +13,8 @@ namespace PaceLogger.Core.Converter {
             var result = new ChartDataItem[trackpoints.Length - 1];
             for (var i = 1; i < trackpoints.Length; i++) {
                 var tp = trackpoints[i];
-                result[i] = new ChartDataItem {
-                    ElapsedSeconds = Calculation.Trackpoints.CalculateTime(first, tp).Seconds,
+                result[i-1] = new ChartDataItem {
+                    ElapsedSeconds = Calculation.Trackpoints.CalculateTime(first, tp).TotalSeconds,
                     Speed = Calculation.Trackpoints.CalculateSpeed(trackpoints[i - 1], tp),
                     Heartrate = tp.Heartrate,
                     AltitudeMeters = tp.AltitudeMeters

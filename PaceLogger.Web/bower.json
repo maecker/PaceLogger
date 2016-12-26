@@ -1,0 +1,24 @@
+{
+  "name": "PaceLogger.Web",
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "moment": "2.17.1",
+    "jquery": "3.1.1",
+    "Chart.js": "2.4.0",
+    "bootstrap": "3.3.7",
+    "react": "15.4.1"
+  },
+  "resolutions": {
+    "jquery": "1.9.1 - 3"
+  }
+}

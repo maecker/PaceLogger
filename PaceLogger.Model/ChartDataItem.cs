@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PaceLogger.Model {
     public class ChartDataItem {
-        public int ElapsedSeconds { get; set; }
+        public double ElapsedSeconds { get; set; }
         public double? Speed { get; set; }
         public byte? Heartrate { get; set; }
         public double? AltitudeMeters { get; set; }

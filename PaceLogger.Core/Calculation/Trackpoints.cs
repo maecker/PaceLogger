@@ -18,7 +18,7 @@ namespace PaceLogger.Core.Calculation {
             if (!t2.DistanceMeters.HasValue || !t1.DistanceMeters.HasValue) {
                 return null;
             }
-            var time = CalculateTime(t1, t2).Milliseconds;
+            var time = CalculateTime(t1, t2).TotalMilliseconds;
             var distance = (t2.DistanceMeters.Value - t1.DistanceMeters.Value);
             return (distance / time) * 3600;
         }

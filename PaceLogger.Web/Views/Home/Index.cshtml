@@ -6,49 +6,70 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>PaceLogger</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    @Styles.Render("~/bundles/css")   
+    
+    <style>
+        div.chartContainer {width: 600px; height: 300px; margin-bottom: 50px;}
+    </style> 
 </head>
 <body>
     <div id="content">
         <a href="/Activity/5">weiter</a>
-        <div style="width: 1000px; height: 400px;">
-            <canvas id="myChart"></canvas>
+        <div class="chartContainer">
+            <canvas id="chartSpeed"></canvas>
+        </div>
+        <div class="chartContainer">
+            <canvas id="chartHeartrate"></canvas>
+        </div>
+        <div class="chartContainer">
+            <canvas id="chartAltitude"></canvas>
         </div>
     </div>
 
-    <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react-dom.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    @Scripts.Render("~/bundles/lib") 
     <script>
 
         $(function () {
-            $.get('api/activity/5/chart', convertData);
+            $.get('/api/activity/5/chart', convertData);
         });
 
         function convertData(response) {
-            var labels = [], data = [];
+            var labels = [], speed = [], heartrate = [], altitudeMeters = [];
 
             response.forEach(function (item) {
-                labels.push(item.ElapsedSeconds);
-                data.push(item.Speed);
+                labels.push(new Date(item.ElapsedSeconds*1000));
+                speed.push(item.Speed);
+                heartrate.push(item.Heartrate);
+                altitudeMeters.push(item.AltitudeMeters);
             });
 
-            drawChart(labels, data);
+            drawChart(labels, speed, 'chartSpeed' );
+            drawChart(labels, heartrate, 'chartHeartrate' );
+            drawChart(labels, altitudeMeters, 'chartAltitude' );
         }
 
-        function drawChart(labels, data) {
-            var ctx = document.getElementById("myChart");
+        function drawChart(labels, data, containerId) {  
+            var ctx = document.getElementById(containerId);
             var myChart = new Chart(ctx, {
                 type: 'line',
                 data: {
                     labels: labels,
-                    datasets: [{
-                        data: data,
-                    }]
-                }
+                    datasets: [{ data: data }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            type: 'time',
+                            time: {
+                                unit: 'minute',
+                                unitStepSize: 5,
+                                displayFormats: {
+                                    minute: 'mm:ss'
+                                }
+                            }
+                        }]
+                    }
+                }                
             });
         }
     </script>    

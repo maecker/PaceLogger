@@ -47,6 +47,8 @@
     }
 
     _setMarker() {
+        var self = this;
+
         for (var i = 0; i < this.state.data.length; i += 2) {
             var m = new google.maps.Marker({
                 position: this.state.data[i],
@@ -61,11 +63,10 @@
 
             m.addListener('mouseover', function (e) {
                 this.setOpacity(1.0);
-                console.log(this.index);
+                self.props.onTrackpointHover({ 'index': this.index, 'position': this.position });
             });
             m.addListener('mouseout', function (e) {
                 this.setOpacity(0.0);
-                console.log(this.index);
             });
         }
     }

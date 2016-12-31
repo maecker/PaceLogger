@@ -36,7 +36,7 @@
         function convertData(response) {
             var labels = [], speed = [], heartrate = [], altitudeMeters = [];
 
-            response.forEach(function (item) {
+            response.forEach(function (item) {                
                 labels.push(new Date(item.ElapsedSeconds*1000));
                 speed.push(item.Speed);
                 heartrate.push(item.Heartrate);
@@ -64,10 +64,27 @@
                                 unit: 'minute',
                                 unitStepSize: 5,
                                 displayFormats: {
-                                    minute: 'mm:ss'
+                                    minute: 'hh:mm:ss'
                                 }
                             }
                         }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            title: function (tti) {                                
+                                return 'Zeit: ' + moment(tti.xLabel).format('hh:mm:ss');                                
+                            },
+                            label: function (tti) {
+                                var n = tti.yLabel;
+                                return n % 1 === 0? n : (Math.round(n * 100) / 100).toFixed(2);
+                            }
+                        }
+                    },
+                    elements: {
+                        point: {
+                            radius: 0,
+                            hitRadius: 5
+                        }
                     }
                 }                
             });
@@ -75,3 +92,5 @@
     </script>    
 </body>
 </html>
+
+

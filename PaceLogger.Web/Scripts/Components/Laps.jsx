@@ -33,7 +33,7 @@
                         <th>Start-Zeit</th>
                         <th>Distanz in m</th>
                         <th>Maximale Geschwindigkeit</th>
-                        <th>verbraucte Kalorien</th>
+                        <th>verbrauchte Kalorien</th>
                         <th>Puls (Durchschnitt)</th>
                         <th>Puls (Maximum)</th>
                     </tr>

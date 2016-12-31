@@ -6,8 +6,9 @@
     }
 
     componentWillMount() {
-        var self = this;
-        $.getJSON('/api/activity/' + window['activityId'] + '/map', function (data) {
+        var self = this;      
+
+        $.getJSON(`/api/activity/${this.props.activityId}/map`, function (data) {
             self.setState({ data: data });
         });
     }
@@ -22,21 +23,50 @@
         const mapStyle = {
             width: 500,
             height: 500
-        }
+        }        
+
         if (this.state.data != null) {
-
             this.map.setCenter(this.state.data[0]);
+            this._setPath();
+            this._setMarker();
+        }
 
-            var path = new google.maps.Polyline({
-                path: this.state.data,
-                geodesic: true,
-                strokeColor: '#FF0000',
-                strokeOpacity: 1.0,
-                strokeWeight: 2
+        return (<div ref="map" style={mapStyle}></div>);
+    }
+
+    _setPath() {
+        var path = new google.maps.Polyline({
+            path: this.state.data,
+            geodesic: true,
+            strokeColor: '#FF0000',
+            strokeOpacity: 1.0,
+            strokeWeight: 2
+        });
+
+        path.setMap(this.map);
+    }
+
+    _setMarker() {
+        for (var i = 0; i < this.state.data.length; i += 2) {
+            var m = new google.maps.Marker({
+                position: this.state.data[i],
+                icon: {
+                    path: google.maps.SymbolPath.CIRCLE,
+                    scale: 5
+                },
+                index: i,
+                opacity: 0.0,
+                map: this.map
             });
 
-            path.setMap(this.map);
+            m.addListener('mouseover', function (e) {
+                this.setOpacity(1.0);
+                console.log(this.index);
+            });
+            m.addListener('mouseout', function (e) {
+                this.setOpacity(0.0);
+                console.log(this.index);
+            });
         }
-        return (<div ref="map" style={mapStyle}></div>);
     }
 }

@@ -7,7 +7,7 @@
 
     componentWillMount() {
         var self = this;        
-        $.getJSON('/api/activity/' + window['activityId'] + '/laps', function (data) {
+        $.getJSON(`/api/activity/${this.props.activityId}/laps`, function (data) {
             self.setState({ data: data });
         });
     }
@@ -15,7 +15,7 @@
     render() {
         const rows = this.state.data.map((lap, index) => {
             return (
-                <tr key={index }>
+                <tr key={index}>
                     <td><ValueFormatter type="datetime">{lap.StartTime}</ValueFormatter></td>
                     <td><ValueFormatter type="float">{lap.DistanceMeters}</ValueFormatter></td>
                     <td><ValueFormatter type="float">{lap.MaximumSpeed}</ValueFormatter></td>

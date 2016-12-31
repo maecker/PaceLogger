@@ -1,8 +1,10 @@
-﻿ReactDOM.render(
-    <Laps />, document.getElementById('content')
+﻿
+
+ReactDOM.render(
+    <Laps activityId={window['activityId']} />, document.getElementById('content')
 );
 
 
 ReactDOM.render(
-    <GoogleMap />, document.getElementById('map')
+    <GoogleMap activityId={window['activityId']} />, document.getElementById('map')
 );

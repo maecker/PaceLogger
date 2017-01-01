@@ -14,6 +14,7 @@
 <body>
     <div id="content"></div>
     <div id="map"></div>
+    <div id="charts"></div>
     
     @Scripts.Render("~/bundles/lib")       
     <script src="//maps.googleapis.com/maps/api/js?key=@ViewBag.GoogleMapsKey"></script>
@@ -25,6 +26,7 @@
     <script src="@Url.Content("~/Scripts/Components/ValueFormatter.jsx")"></script>
     <script src="@Url.Content("~/Scripts/Components/Laps.jsx")"></script>
     <script src="@Url.Content("~/Scripts/Components/Map.jsx")"></script>
+    <script src="@Url.Content("~/Scripts/Components/Charts.jsx")"></script>
     <script src="@Url.Content("~/Scripts/Activtiy.jsx")"></script>
 </body>
 </html>

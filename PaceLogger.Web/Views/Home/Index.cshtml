@@ -30,14 +30,14 @@
     <script>
 
         $(function () {
-            $.get('/api/activity/5/chart', convertData);
+            // $.get('/api/activity/5/chart', convertData);
         });
 
         function convertData(response) {
             var labels = [], speed = [], heartrate = [], altitudeMeters = [];
 
             response.forEach(function (item) {                
-                labels.push(new Date(item.ElapsedSeconds*1000));
+                labels.push(item.ElapsedSeconds*1000);
                 speed.push(item.Speed);
                 heartrate.push(item.Heartrate);
                 altitudeMeters.push(item.AltitudeMeters);
@@ -66,13 +66,20 @@
                                 displayFormats: {
                                     minute: 'hh:mm:ss'
                                 }
-                            }
+                            },
+                            ticks: {
+                                callback: function (value) {
+                                    // eine Stunde abziehen (das Date-Objekt um 1AM startet, wenn das erste Date-Objekt mit 0 initialisiert wird)
+                                    var hour = parseInt(value.substring(0,2)) - 1;
+                                    return (hour < 10? '0' : '') + hour + value.substring(2);
+                                },
+                            },
                         }]
                     },
                     tooltips: {
                         callbacks: {
                             title: function (tti) {                                
-                                return 'Zeit: ' + moment(tti.xLabel).format('hh:mm:ss');                                
+                                return 'Zeit: ' + moment(tti[0].xLabel).subtract(1, 'hours').format('HH:mm:ss');                                
                             },
                             label: function (tti) {
                                 var n = tti.yLabel;

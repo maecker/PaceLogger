@@ -14,9 +14,13 @@ namespace PaceLogger.Core.Serialization {
             activity.Time = Calculation.Activity.CalculateTotalTime(activity.Laps);
             activity.DistanceMeters = Calculation.Activity.CalculateTotalDistance(activity.Laps);
             activity.StartTime = activity.Laps.First().StartTime;
-
+            activity.Pace = Calculation.Activity.CalculatePace(activity.Time, activity.DistanceMeters);
+            activity.AverageHeartRate = Calculation.Activity.CalulateTotalAverageHeartrate(activity.Laps);
+            activity.AltitudeMeters = Calculation.Activity.CalulateTotalAltitudeMeters(activity.Laps);
             return activity;
         }
+
+        
 
         private static TrainingCenterDatabase_t loadTcx(string pathTcxFile) {
             XmlSerializer xs = new XmlSerializer(typeof(TrainingCenterDatabase_t));

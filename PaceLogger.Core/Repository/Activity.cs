@@ -13,14 +13,14 @@ namespace PaceLogger.Core.Repository {
                 db.SaveChanges();
                 
                 foreach (var lap in a.Laps) {
-                    lap.ActivityId = a.ActivityId;
+                    lap.ActivityId = a.Id;
                     db.Laps.Add(lap);             
                 }
                 db.SaveChanges();
 
                 foreach (var lap in a.Laps) { 
                     foreach(var trackpoint in lap.Track) {
-                        trackpoint.LapId = lap.LapId;
+                        trackpoint.LapId = lap.Id;
                         db.Trackpoints.Add(trackpoint);
                     }
                 }

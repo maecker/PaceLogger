@@ -17,7 +17,7 @@
             return (
                 <tr key={index}>
                     <td><ValueFormatter type="datetime">{lap.StartTime}</ValueFormatter></td>
-                    <td><ValueFormatter type="float">{lap.DistanceMeters}</ValueFormatter></td>
+                    <td><ValueFormatter type="integer">{lap.DistanceMeters}</ValueFormatter></td>
                     <td><ValueFormatter type="float">{lap.MaximumSpeed}</ValueFormatter></td>
                     <td><ValueFormatter type="float">{lap.Calories}</ValueFormatter></td>
                     <td><ValueFormatter type="float">{lap.AverageHeartRate}</ValueFormatter></td>

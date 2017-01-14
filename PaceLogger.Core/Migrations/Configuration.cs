@@ -10,6 +10,7 @@ namespace PaceLogger.Core.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
+            ContextKey = "PaceLogger.Core.Repository.DatabaseContext";
         }
 
         protected override void Seed(PaceLogger.Core.Repository.DatabaseContext context)

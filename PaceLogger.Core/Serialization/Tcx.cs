@@ -658,7 +658,7 @@ namespace PaceLogger.Core.Serialization {
 
         private Intensity_t intensityField;
 
-        private byte cadenceField;
+        private int cadenceField;
 
         private bool cadenceFieldSpecified;
 
@@ -810,7 +810,7 @@ namespace PaceLogger.Core.Serialization {
         }
 
         /// <remarks/>
-        public byte Cadence
+        public int Cadence
         {
             get
             {
@@ -2276,9 +2276,11 @@ namespace PaceLogger.Core.Serialization {
 
         /// <remarks/>
         Running,
+        running,
 
         /// <remarks/>
         Biking,
+        cycling,
 
         /// <remarks/>
         Other,

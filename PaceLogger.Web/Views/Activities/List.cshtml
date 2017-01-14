@@ -1,0 +1,25 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>PaceLogger</title>
+    @Styles.Render("~/bundles/css")
+</head>
+<body>    
+
+    <div id="list"></div>
+
+    @Scripts.Render("~/bundles/lib")
+    
+    <script src="@Url.Content("~/Scripts/Components/ListActivities.jsx")"></script>
+    <script src="@Url.Content("~/Scripts/Components/ValueFormatter.jsx")"></script>
+    <script src="@Url.Content("~/Scripts/ActivitiesList.jsx")"></script>
+</body>
+</html>
+

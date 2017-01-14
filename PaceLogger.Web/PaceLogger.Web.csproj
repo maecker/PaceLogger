@@ -202,8 +202,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="Scripts\Activtiy.jsx" />
+    <Content Include="Scripts\ActivitiesList.jsx" />
+    <Content Include="Scripts\ActivitesDetail.jsx" />
     <Content Include="Scripts\Components\Charts.jsx" />
+    <Content Include="Scripts\Components\ListActivities.jsx" />
     <Content Include="Scripts\Components\Laps.jsx" />
     <Content Include="Scripts\Components\Map.jsx" />
     <Content Include="Scripts\Components\ValueFormatter.jsx" />
@@ -215,7 +217,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\ReactConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\ActivityController.cs" />
+    <Compile Include="Controllers\Web\ActivitiesController.cs" />
     <Compile Include="Controllers\Api\ActivityController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -232,8 +234,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Activity\Index.cshtml" />
+    <Content Include="Views\Activities\Detail.cshtml" />
     <Content Include="bower.json" />
+    <Content Include="Views\Activities\List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

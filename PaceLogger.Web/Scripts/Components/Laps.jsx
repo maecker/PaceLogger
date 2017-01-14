@@ -7,7 +7,7 @@
 
     componentWillMount() {
         var self = this;        
-        $.getJSON(`/api/activity/${this.props.activityId}/laps`, function (data) {
+        $.getJSON(`/api/activities/${this.props.activityId}/laps`, function (data) {
             self.setState({ data: data });
         });
     }

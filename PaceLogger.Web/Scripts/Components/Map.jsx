@@ -8,8 +8,7 @@
     componentWillMount() {
         var self = this;      
 
-        $.getJSON(`/api/activity/${this.props.activityId}/map`, function (data) {
-            console.log('dsdfsdfsdf');
+        $.getJSON(`/api/activities/${this.props.activityId}/map`, function (data) {            
             self.setState({ data: data });
         });
     }

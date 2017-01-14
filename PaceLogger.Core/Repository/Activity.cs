@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PaceLogger.Core.Repository {
     public class Activities {
@@ -25,10 +22,12 @@ namespace PaceLogger.Core.Repository {
                     }
                 }
                 db.SaveChanges();
+            }
+        }
 
-                //db.Trackpoints.AddRange(lap.Track);
-
-
+        public static Model.Activity[] Get() {
+            using (var db = new DatabaseContext()) {
+                return db.Activities.ToArray();
             }
         }
     }

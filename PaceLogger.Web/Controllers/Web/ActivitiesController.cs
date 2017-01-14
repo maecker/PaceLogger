@@ -5,10 +5,15 @@ using System.Web.UI;
 using System.Web.Mvc;
 
 namespace PaceLogger.Web.Controllers {
-    public class ActivityController : Controller {
+    public class ActivitiesController : Controller {
 
-        [Route("activity/{id}")]
-        public ActionResult Index(int id) {
+        [Route("activities")]
+        public ActionResult List() {            
+            return View();
+        }
+
+        [Route("activities/{id}")]
+        public ActionResult Detail(int id) {
             ViewBag.ActivityId = id;
             ViewBag.GoogleMapsKey = System.IO.File.ReadAllText(@"D:\Visual Studio 2015\GoogleMapsKey.txt");
             return View();

@@ -17,7 +17,7 @@
     componentWillMount() {
         var self = this;      
 
-        $.getJSON(`/api/activity/${this.props.activityId}/chart`, function (data) {
+        $.getJSON(`/api/activities/${this.props.activityId}/chart`, function (data) {
             self.setState(self._convertData(data));
         });
     }

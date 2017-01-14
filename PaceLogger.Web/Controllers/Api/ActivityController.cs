@@ -10,13 +10,19 @@ namespace PaceLogger.Web.Controllers.Api {
     public class ActivityController : ApiController {
 
         [HttpGet]
-        [Route("api/activity/{activityId}/laps")]        
+        [Route("api/activities/a/b")]
+        public Activity[] Activities() {
+            return Core.Repository.Activities.Get();
+        }
+
+        [HttpGet]
+        [Route("api/activities/{activityId}/laps")]        
         public Lap[] Laps(int activityId) {
             return Core.Repository.Laps.GetByActivityId(activityId);            
         }
 
         [HttpGet]
-        [Route("api/activity/{activityId}/map")]        
+        [Route("api/activities/{activityId}/map")]        
         public GeoLocation[] Map(int activityId) {
 
             var trackpoints = Core.Repository.Trackpoints.GetByActivityId(activityId);
@@ -24,7 +30,7 @@ namespace PaceLogger.Web.Controllers.Api {
         }
 
         [HttpGet]
-        [Route("api/activity/{activityId}/chart")]        
+        [Route("api/activities/{activityId}/chart")]        
         public ChartDataItem[] Chart(int activityId) {
             var trackpoints = Core.Repository.Trackpoints.GetByActivityId(activityId);
             return Core.Converter.Trackpoints.ChartData(trackpoints);

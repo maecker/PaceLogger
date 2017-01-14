@@ -1,6 +1,11 @@
 ﻿ReactDOM.render(
-    <ListActivities />, document.getElementById('list')
+    <ListActivities onActivityClick={onActivityClick } />, document.getElementById('list')
 );
+
+function onActivityClick(activity) {
+    //console.log('ActivityId:' + activity.Id);
+    window.location += '/' + activity.Id;
+}
 
 
 

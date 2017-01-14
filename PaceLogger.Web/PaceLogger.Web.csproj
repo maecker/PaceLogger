@@ -203,7 +203,7 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Scripts\ActivitiesList.jsx" />
-    <Content Include="Scripts\ActivitesDetail.jsx" />
+    <Content Include="Scripts\ActivitiesDetail.jsx" />
     <Content Include="Scripts\Components\Charts.jsx" />
     <Content Include="Scripts\Components\ListActivities.jsx" />
     <Content Include="Scripts\Components\Laps.jsx" />

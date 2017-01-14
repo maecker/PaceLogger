@@ -3,6 +3,7 @@
     constructor() {
         super();
         this.state = { data: [] };
+        this.handleActivityClick = this.handleActivityClick.bind(this);
     }
 
     componentWillMount() {
@@ -12,26 +13,38 @@
         });
     }
 
-    
+    handleActivityClick(e) {
+        e.preventDefault();
+        var target = e.srcElement || e.target;
+        while (target && target.nodeName !== "TR") {
+            target = target.parentNode;
+        }
+        if (target) {
+            var index = parseInt(target.getAttribute('data-index'));
+            if ($.isFunction(this.props.onActivityClick)) {
+                this.props.onActivityClick(this.state.data[index]);
+            }
+        }
+    }
 
     render() {
         const rows = this.state.data.map((act, index) => {
             return (
-                <tr key={index}>
+                <tr key={index} data-index={index} >
                     <td>{act.Sport}</td>
                     <td><ValueFormatter type="datetime">{act.StartTime}</ValueFormatter></td>
                     <td><ValueFormatter type="integer">{act.DistanceMeters}</ValueFormatter></td>
                     <td>{act.Time}</td>
                     <td>{act.Pace}</td>                    
-                    <td><ValueFormatter type="float">{act.AverageHeartRate}</ValueFormatter></td>                    
+                    <td><ValueFormatter type="int">{act.AverageHeartRate}</ValueFormatter></td>                    
                     <td><ValueFormatter type="float">{act.AltitudeMeters}</ValueFormatter></td>  
-                    <td><ValueFormatter type="float">{act.Calories}</ValueFormatter></td>
+                    <td><ValueFormatter type="int">{act.Calories}</ValueFormatter></td>
                 </tr>
             );
         });
 
         return (
-            <table className="table">
+            <table className="table table-striped table-hover">
                 <thead>                
                     <tr>
                         <th>Sportart</th>
@@ -44,7 +57,7 @@
                         <th>Kalorien</th>
                     </tr>
                 </thead>
-                <tbody>{rows}</tbody>
+                <tbody onClick={this.handleActivityClick}>{rows}</tbody>
             </table>
         );
     }

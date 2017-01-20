@@ -9,7 +9,11 @@ namespace PaceLogger.Core.Serialization {
     public class TcxSerializer {
         public static Model.Activity Deserialize(string pathTcxFile) {
             var data = loadTcx(pathTcxFile);
-            var activity = PaceLogger.Core.Converter.Tcx.Acitivty(data.Activities.Activity[0]); // TODO: z.Zt. Annahme das das TCX immer nur eine Activity hat, was aber laut XSD nicht stimmt           
+            var activity = PaceLogger.Core.Converter.Tcx.Activity(data.Activities.Activity[0]); // TODO: z.Zt. Annahme das das TCX immer nur eine Activity hat, was aber laut XSD nicht stimmt           
+
+            if (activity.Laps.Length == 1) {
+                activity.Laps = Calculation.Lap.Split(activity.Laps[0], 1000);
+            }
 
             activity.Time = Calculation.Activity.CalculateTotalTime(activity.Laps);
             activity.DistanceMeters = Calculation.Activity.CalculateTotalDistance(activity.Laps);
@@ -17,10 +21,9 @@ namespace PaceLogger.Core.Serialization {
             activity.Pace = Calculation.Activity.CalculatePace(activity.Time, activity.DistanceMeters);
             activity.AverageHeartRate = Calculation.Activity.CalulateTotalAverageHeartrate(activity.Laps);
             activity.AltitudeMeters = Calculation.Activity.CalulateTotalAltitudeMeters(activity.Laps);
+            activity.Calories = Calculation.Activity.CalaculateTotalCalories(activity.Laps);
             return activity;
-        }
-
-        
+        }        
 
         private static TrainingCenterDatabase_t loadTcx(string pathTcxFile) {
             XmlSerializer xs = new XmlSerializer(typeof(TrainingCenterDatabase_t));

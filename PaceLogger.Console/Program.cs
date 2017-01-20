@@ -12,6 +12,8 @@ namespace PaceLogger.Console {
             //ImportTcxInDatabase.Directory(@"E:\_Incoming\CONVERTED_TCX", 1);
 
             ImportTcxInDatabase.Directory(@"D:\TCX", 1);
+
+            System.Console.ReadLine();
         }
 
         private static void test () {

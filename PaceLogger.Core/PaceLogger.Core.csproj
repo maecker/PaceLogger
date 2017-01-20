@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Calculation\Activity.cs" />
+    <Compile Include="Calculation\Lap.cs" />
     <Compile Include="Calculation\Trackpoints.cs" />
     <Compile Include="Converter\Tcx.cs" />
     <Compile Include="Converter\Trackpoints.cs" />
@@ -79,6 +80,10 @@
     <Compile Include="Migrations\201701081719140_AddCaloriesAndSport.cs" />
     <Compile Include="Migrations\201701081719140_AddCaloriesAndSport.Designer.cs">
       <DependentUpon>201701081719140_AddCaloriesAndSport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701201859167_Calories.cs" />
+    <Compile Include="Migrations\201701201859167_Calories.Designer.cs">
+      <DependentUpon>201701201859167_Calories.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -126,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701081719140_AddCaloriesAndSport.resx">
       <DependentUpon>201701081719140_AddCaloriesAndSport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701201859167_Calories.resx">
+      <DependentUpon>201701201859167_Calories.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

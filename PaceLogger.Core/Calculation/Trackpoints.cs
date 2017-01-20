@@ -25,6 +25,39 @@ namespace PaceLogger.Core.Calculation {
 
         public static TimeSpan CalculateTime(Trackpoint t1, Trackpoint t2) {
             return (t2.Time - t1.Time);
-        } 
+        }
+
+        public static double CalculateMaximumSpeed(Trackpoint[] tp) {
+            var maxSpeed = 0D;
+            for (var i = 1; i < tp.Length; i++) {
+                var speed = CalculateSpeed(tp[i - 1], tp[i]) ?? 0;
+                if (speed > maxSpeed) {
+                    maxSpeed = speed;
+                }
+            }
+            return maxSpeed;
+        }
+
+        public static byte CalculateMaximumHeartRate(Trackpoint[] trackpoints) {
+            var max = (byte)0;
+            foreach(var tp in trackpoints) {
+                var hr = tp.Heartrate ?? 0;
+                if (hr > max) {
+                    hr = max;
+                }
+            }
+            return max;
+        }
+
+        public static byte? CalculateAverageHeartRate(Trackpoint[] trackpoints) {
+            int count = 0, sum = 0;
+            foreach (var tp in trackpoints) {
+                if (tp.Heartrate.HasValue) {
+                    count++;
+                    sum += tp.Heartrate.Value;
+                }                
+            }
+            return count > 0 ? (byte)(sum / count) : default(byte?);
+        }
     }    
 }

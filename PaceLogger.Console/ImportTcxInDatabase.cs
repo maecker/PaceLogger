@@ -22,10 +22,15 @@ namespace PaceLogger.Console {
 
         public static void File(string path, int userId) {
 
+            System.Console.Write(path + " " + DateTime.Now.ToLongTimeString());
+
+
             var activity = Core.Serialization.TcxSerializer.Deserialize(path);
             activity.UserId = userId;
 
             Core.Repository.Activities.Insert(activity);
+
+            System.Console.WriteLine(" - " + DateTime.Now.ToLongTimeString());
 
         }
     }
